@@ -9,10 +9,6 @@ public static class ClassLibExtension
 {
     public static IServiceCollection AddClassLibrary(this IServiceCollection services, List<Assembly> assemblies) 
     {
-        // Register your classes here
-        // Example: services.AddTransient<IYourService, YourService>();
-
-        // Register the pipeline services
         var currentAssembly = typeof(ClassLibExtension).Assembly;
         assemblies.Add(currentAssembly); ;
         services.AddMediatorService(

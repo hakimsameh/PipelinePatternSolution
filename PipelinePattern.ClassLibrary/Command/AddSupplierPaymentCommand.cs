@@ -1,5 +1,5 @@
 ﻿using CQRS.Core.Interfaces;
-using PipelinePattern.Results;
+using SamSoft.Common.Results;
 
 namespace PipelinePattern.ClassLibrary.Command;
 

@@ -7,9 +7,9 @@ using PipelinePattern.Extensions;
 using System.Reflection;
 Console.WriteLine("Hello, World!");
 var services = new ServiceCollection();
-List<Assembly> assemblies = new List<Assembly>();
+List<Assembly> assemblies = [];
 services.AddClassLibrary(assemblies);
-services.GetPipelineServices(assemblies.ToArray());
+services.GetPipelineServices([.. assemblies]);
 
 Console.WriteLine("Finish Registration");
 var provider = services.BuildServiceProvider();

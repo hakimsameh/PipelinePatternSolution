@@ -1,5 +1,5 @@
 ﻿using PipelinePattern.Interfaces;
-using PipelinePattern.Results;
+using SamSoft.Common.Results;
 
 namespace PipelinePattern.Core;
 internal class PipelineExecutor<TContext>(IEnumerable<IPipelineStep<TContext>> steps)
