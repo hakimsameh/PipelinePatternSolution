@@ -17,5 +17,9 @@ var provider = services.BuildServiceProvider();
 var sender = provider.GetRequiredService<ISender>();
 var command = new AddSupplierPaymentCommand(Guid.NewGuid(), 1000, "USD", DateTime.UtcNow, "Cash", "REF-001");
 var result = await sender.Send(command);
-
 Console.WriteLine(result.IsFailure ? $"Failed: {result.Error}" : "Success");
+// UnSuccess Command
+
+var command2 = new AddSupplierPaymentCommand(Guid.Empty, 1000, "USD", DateTime.UtcNow, "Cash", "REF-001");
+var result2 = await sender.Send(command2);
+Console.WriteLine(result2.IsFailure ? $"Failed: {result2.Error}" : "Success");

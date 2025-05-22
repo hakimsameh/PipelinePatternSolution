@@ -3,7 +3,7 @@
 namespace PipelinePattern.Interfaces;
 
 public interface IPipelineExecutor<TContext>
-    where TContext : IPipelineContext
+    where TContext : IPipelineContextBase
 {
     Task<Result> ExecuteAsync(TContext context, CancellationToken cancellationToken = default);
 }

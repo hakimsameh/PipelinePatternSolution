@@ -34,7 +34,7 @@ public static class PipelinePatternExtensions
                 .Where(t => t.IsClass && 
                 !t.IsAbstract && 
                 !t.IsGenericType && 
-                typeof(IPipelineContext).IsAssignableFrom(t));
+                typeof(IPipelineContextBase).IsAssignableFrom(t));
 
             foreach (var contextType in contextTypes)
             {

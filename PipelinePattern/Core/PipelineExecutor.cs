@@ -4,7 +4,7 @@ using SamSoft.Common.Results;
 namespace PipelinePattern.Core;
 internal class PipelineExecutor<TContext>(IEnumerable<IPipelineStep<TContext>> steps)
     : IPipelineExecutor<TContext>
-    where TContext : IPipelineContext
+    where TContext : IPipelineContextBase
 {
     private readonly IList<IPipelineStep<TContext>> _steps = [.. steps.OrderBy(step => step.Order)];
     public Task<Result> ExecuteAsync(TContext context, CancellationToken cancellationToken = default)

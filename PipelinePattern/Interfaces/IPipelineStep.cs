@@ -3,7 +3,7 @@
 namespace PipelinePattern.Interfaces;
 
 public interface IPipelineStep<TContext>
-    where TContext : IPipelineContext
+    where TContext : IPipelineContextBase
 {
     int Order { get; }
     Task<Result> ProcessAsync(TContext context, Func<Task<Result>> next, CancellationToken cancellationToken);

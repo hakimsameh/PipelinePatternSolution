@@ -1,3 +1,10 @@
-﻿namespace PipelinePattern.Interfaces;
+﻿using SamSoft.Common.Results;
 
-public interface IPipelineContext { }
+namespace PipelinePattern.Interfaces;
+
+public interface IPipelineContext<TRequest> : IPipelineContextBase
+{
+    TRequest Request { get; }
+    CancellationToken CancellationToken { get; }
+    Result ContextResult { get; set; }
+}
