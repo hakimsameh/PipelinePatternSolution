@@ -14,7 +14,7 @@ internal class ValidateSupplierStep(ILogger<ValidateSupplierStep> logger) : IPip
         if (context.ContextResult.IsFailure) return Task.FromResult(context.ContextResult);
         logger.LogInformation("Validating supplier ID: {SupplierId}, Step Order: {Order}", context.Request.SupplierId, Order);
         if (context.Request.SupplierId == Guid.Empty)
-            context.ContextResult = Result.Failure(Error.Validation("Supplier", "Supplier ID is required"));
+            context.SetContextResult(Error.Validation("Supplier", "Supplier ID is required"));
         else
             logger.LogInformation("Supplier ID {SupplierId} is valid", context.Request.SupplierId);
 

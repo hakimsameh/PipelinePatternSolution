@@ -6,5 +6,6 @@ public interface IPipelineContext<TRequest> : IPipelineContextBase
 {
     TRequest Request { get; }
     CancellationToken CancellationToken { get; }
-    Result ContextResult { get; set; }
+    Result ContextResult { get; }
+    void SetContextResult(Error result);
 }

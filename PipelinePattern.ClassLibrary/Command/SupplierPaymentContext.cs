@@ -1,4 +1,5 @@
-﻿using PipelinePattern.Interfaces;
+﻿using PipelinePattern.Core;
+using PipelinePattern.Interfaces;
 
 namespace PipelinePattern.ClassLibrary.Command;
 

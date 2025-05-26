@@ -7,8 +7,8 @@ namespace PipelinePattern.Extensions;
 
 public static class PipelinePatternExtensions
 {
-    public static IServiceCollection GetPipelineServices(this IServiceCollection services
-        , params Assembly[] assemblies)
+    public static IServiceCollection GetPipelineServices(
+        this IServiceCollection services, params Assembly[] assemblies)
     {
         if (assemblies == null || assemblies.Length == 0)
             throw new ArgumentException("At least one assembly must be provided.", nameof(assemblies));

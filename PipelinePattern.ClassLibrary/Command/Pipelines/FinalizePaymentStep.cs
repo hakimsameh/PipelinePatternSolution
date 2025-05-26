@@ -13,7 +13,7 @@ internal class FinalizePaymentStep(ILogger<FinalizePaymentStep> logger)
     {
         if (context.ContextResult.IsFailure) return Task.FromResult(context.ContextResult);
         logger.LogInformation("Finalizing payment for supplier ID: {SupplierId}, Step Order: {Order}", context.Request.SupplierId, Order);
-        context.ContextResult = Result.Success();
+        //context.ContextResult = Result.Success();
         logger.LogInformation("Payment for supplier ID {SupplierId} finalized successfully", context.Request.SupplierId);
         return next();
     }

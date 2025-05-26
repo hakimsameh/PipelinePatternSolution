@@ -10,5 +10,9 @@ public abstract class PipelineContextBase<TRequest>
 
     public CancellationToken CancellationToken { get; } = cancellationToken;
 
-    public Result ContextResult { get; set; } = Result.Success();
+    public Result ContextResult { get; private set; } = Result.Success();
+    public void SetContextResult(Error result)
+    {
+        ContextResult = Result.Failure(result);
+    }
 }
