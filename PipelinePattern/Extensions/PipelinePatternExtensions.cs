@@ -14,8 +14,7 @@ public static class PipelinePatternExtensions
             throw new ArgumentException("At least one assembly must be provided.", nameof(assemblies));
         services.AddPipelineExecutors(assemblies);
         services.AddPipelineSteps(
-            assemblies,
-            ServiceLifetime.Transient);
+            assemblies);
         return services;
     }
     private static IServiceCollection AddPipelineExecutors(

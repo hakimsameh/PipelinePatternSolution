@@ -11,7 +11,6 @@ internal class ValidateSupplierStep(ILogger<ValidateSupplierStep> logger) : IPip
 
     public Task<Result> ProcessAsync(SupplierPaymentContext context, Func<Task<Result>> next, CancellationToken cancellationToken)
     {
-        if (context.ContextResult.IsFailure) return Task.FromResult(context.ContextResult);
         logger.LogInformation("Validating supplier ID: {SupplierId}, Step Order: {Order}", context.Request.SupplierId, Order);
         if (context.Request.SupplierId == Guid.Empty)
             context.SetContextResult(Error.Validation("Supplier", "Supplier ID is required"));

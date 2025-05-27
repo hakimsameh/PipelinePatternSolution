@@ -14,7 +14,13 @@ internal class PipelineExecutor<TContext>(IEnumerable<IPipelineStep<TContext>> s
         {
             var current = step;
             var previousNext = next;
-            next = () => current.ProcessAsync(context, previousNext, cancellationToken);
+            next = async () =>
+            {
+                if (context.ContextResult.IsFailure)
+                    return context.ContextResult;
+
+                return await current.ProcessAsync(context, previousNext, cancellationToken);
+            };
         }
         return next();
     }

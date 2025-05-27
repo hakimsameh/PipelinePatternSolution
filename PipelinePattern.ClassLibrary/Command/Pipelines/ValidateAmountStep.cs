@@ -10,7 +10,6 @@ internal class ValidateAmountStep(ILogger<ValidateAmountStep> logger) : IPipelin
 
     public Task<Result> ProcessAsync(SupplierPaymentContext context, Func<Task<Result>> next, CancellationToken cancellationToken)
     {
-        if (context.ContextResult.IsFailure) return Task.FromResult(context.ContextResult);
         logger.LogInformation("Validating amount: {Amount}, Step Order: {Order}", context.Request.Amount, Order);
         if (context.Request.Amount <= 0)
             context.SetContextResult(Error.Validation("Amount", "Amount must be greater than zero"));//);

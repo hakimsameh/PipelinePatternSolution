@@ -2,4 +2,7 @@
 
 namespace PipelinePattern.Interfaces;
 
-public interface IPipelineContextBase { }
+public interface IPipelineContextBase
+{
+    Result ContextResult { get; }
+}

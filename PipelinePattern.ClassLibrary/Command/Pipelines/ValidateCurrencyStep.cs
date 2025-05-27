@@ -10,7 +10,6 @@ internal class ValidateCurrencyStep(ILogger<ValidateCurrencyStep> logger) : IPip
 
     public Task<Result> ProcessAsync(SupplierPaymentContext context, Func<Task<Result>> next, CancellationToken cancellationToken)
     {
-        if (context.ContextResult.IsFailure) return Task.FromResult(context.ContextResult);
         logger.LogInformation("Validating currency code: {CurrencyCode}, Step Order: {Order}", context.Request.Currency, Order);
         if (string.IsNullOrWhiteSpace(context.Request.Currency))
             return Task.FromResult(Result.Failure(Error.Validation("Currency", "Currency code is required")));
